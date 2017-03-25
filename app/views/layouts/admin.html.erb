@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jdstore</title>
+    <%= stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag  'application', 'data-turbolinks-trakc' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container-fluid" style="margin-top:70px;">
+      <%= render "common/navbar" %>
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="nav nav-pills nav-stacked" style="max-width: 200px;">
+            <li><%= link_to("Products", admin_products_path , class: "btn btn-success ")%></li>
+          </ul>
+        </div>
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render "common/footer" %>
+  </body>
+</html>
