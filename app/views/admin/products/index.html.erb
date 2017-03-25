@@ -1,0 +1,33 @@
+<div class="col-md-12">
+  <div class="pull-right">
+    <%= link_to("新增商品", new_admin_product_path, class: "btn btn-primary btn-sm") %>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>商品名称</th>
+        <th>库存量</th>
+        <th>商品价格</th>
+        <th>上架时间</th>
+        <th>管理选项</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= link_to(product.title, admin_product_path(product)) %></td>
+          <td><%= product.quantity %></td>
+          <td><%= product.price %></td>
+          <td><%= product.created_at %></td>
+          <td>
+            <%= link_to("编缉商品", edit_admin_product_path(product), class: "btn btn-success btn-xs") %>
+            <%= link_to("删除商品", admin_product_path(product), method: :delete, class: "btn btn-danger btn-xs") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
