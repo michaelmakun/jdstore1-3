@@ -6,22 +6,26 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>#</th>
-        <th>商品名称</th>
+        <th width="220">商品详情</th>
         <th>库存量</th>
         <th>商品价格</th>
-        <th>上架时间</th>
         <th>管理选项</th>
       </tr>
     </thead>
     <tbody>
       <% @products.each do |product| %>
         <tr>
-          <td><%= product.id %></td>
-          <td><%= link_to(product.title, admin_product_path(product)) %></td>
+          <td>
+            <%= link_to admin_product_path(product) do %>
+              <% if product.image.present? %>
+                <%= image_tag(product.image.thumb) %>
+              <% else %>
+                <%= image_tag("https://ww1.sinaimg.cn/large/006tNc79gy1fdyy9beax0g30a00a0mx3.gif", width: "200", height: "200") %>
+              <% end %>
+            <% end %>
+          </td>
           <td><%= product.quantity %></td>
           <td><%= product.price %></td>
-          <td><%= product.created_at %></td>
           <td>
             <%= link_to("编缉商品", edit_admin_product_path(product), class: "btn btn-success btn-xs") %>
             <%= link_to("删除商品", admin_product_path(product), method: :delete, class: "btn btn-danger btn-xs") %>
