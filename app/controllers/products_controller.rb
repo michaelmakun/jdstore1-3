@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+
+    cookies[:foobar_id] = 123456
   end
 
   def show
