@@ -8,7 +8,7 @@
 
 u = User.new
 
-u.email = "admin@gmail.com"
+u.email = "michaelmakun@aliyun.com"
 
 u.password = "123456"
 
