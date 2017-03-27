@@ -4,7 +4,10 @@ class Order < ApplicationRecord
   def generate_token
     self.token = SecureRandom.uuid
   end
-  belongs_to :user
+  belongs_to :user, class_name: :"User", foreign_key: :"user_id"
+
+  belongs_to :buyer, :class_name => "User", :foreign_key => "user_id"
+
   has_many :product_lists
 
   validates :billing_name, presence: true
