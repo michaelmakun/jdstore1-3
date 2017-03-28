@@ -42,6 +42,8 @@ gem 'fog'
 gem 'will_paginate'   #show different pages
 gem 'select2-rails'   #select multiselect single select
 gem 'bootstrap-datepicker-rails'  #show different date
+gem 'rucaptcha'
+gem 'dalli'  #image in registrations
 
 group :production do
   gem 'pg'
