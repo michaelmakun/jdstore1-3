@@ -4,7 +4,10 @@ class Product < ApplicationRecord
   validates :price, presence: true
 
   belongs_to :category
+
   mount_uploader :image, ImageUploader
+
+  acts_as_list
 
   has_many :groupships
   has_many :groups, through: :groupships, source: :group

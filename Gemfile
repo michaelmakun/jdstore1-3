@@ -45,6 +45,8 @@ gem 'bootstrap-datepicker-rails'  #show different date
 gem 'rucaptcha'
 gem 'dalli'  #image in registrations
 
+gem 'acts_as_list'
+
 group :production do
   gem 'pg'
 end

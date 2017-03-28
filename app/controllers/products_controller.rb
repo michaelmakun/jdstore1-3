@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # before_action :authenticate_user!
 
   def index
-    @products = Product.all
+    @products = Product.all.order("position ASC")
 
     cookies[:foobar_id] = 123456
   end
