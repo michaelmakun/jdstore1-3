@@ -1,3 +1,35 @@
 <h1 class="text-center">编缉商品</h1>
 
-<%= render "product" %>
+<%= simple_form_for [:admin, @product] do |f| %>
+
+  <%= f.input :title %>
+
+  
+  <div class="group">
+    <%= f.association :category %>
+    <%#= f.select :category_id, Category.all.map{ |x| [x.name, x.id] }, {}, :class => "form-control" %>
+  </div>
+
+  <div class="group">
+    <%= f.input :description %>
+  </div>
+
+  <%= f.input :quantity %>
+
+  <%= f.input :price %>
+
+  <% if @product.image.present? %>
+    <span>目前商品图</span>
+    <%= image_tag(@product.image.thumb)%>
+  <% end %>
+
+  <%= f.input :image, as: :file %>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
+
+
+<script>
+  $("#product_category_id").select2();
+</script>

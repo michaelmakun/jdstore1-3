@@ -40,6 +40,7 @@ gem 'aasm'
 gem 'figaro'
 gem 'fog'
 gem 'will_paginate'
+gem 'select2-rails'
 
 group :production do
   gem 'pg'
