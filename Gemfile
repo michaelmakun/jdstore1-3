@@ -39,8 +39,9 @@ gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'figaro'
 gem 'fog'
-gem 'will_paginate'
-gem 'select2-rails'
+gem 'will_paginate'   #show different pages
+gem 'select2-rails'   #select multiselect single select
+gem 'bootstrap-datepicker-rails'  #show different date
 
 group :production do
   gem 'pg'
