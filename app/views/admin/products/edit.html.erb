@@ -4,10 +4,15 @@
 
   <%= f.input :title %>
 
-  
+
   <div class="group">
     <%= f.association :category %>
     <%#= f.select :category_id, Category.all.map{ |x| [x.name, x.id] }, {}, :class => "form-control" %>
+  </div>
+
+  <div class="group">
+    <%= f.association :groups %>
+    <%#= f.association :groups, as: "check_boxes" %>
   </div>
 
   <div class="group">
@@ -32,4 +37,5 @@
 
 <script>
   $("#product_category_id").select2();
+  $("#product_group_ids").select2();
 </script>
