@@ -14,4 +14,21 @@ class Product < ApplicationRecord
 
   has_many :cart_items
   has_many :carts, through: :cart_items, source: :cart
+
+  #product_favs means favourite products
+  has_many :product_favs
+  has_many :users, through: :product_favs, source: :user
+
+  def favourite_product?(user)
+    users.include?(user)
+  end
+
+  def add_favourite!(user)
+    users << user
+  end
+
+  def cancel_favourite!(user)
+    users.delete(user)
+  end
+
 end

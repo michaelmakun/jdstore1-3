@@ -9,6 +9,12 @@
         <% end %>
       <% end %>
       <%= product.title %> - <%= product.price %>
+
+      <% if product.favourite_product?(current_user) %>
+        <%= link_to(content_tag(:i, "", class: "fa fa-heart fa-2x", style: "color: red"), unfavourite_product_path(product), method: :post) %>
+      <% else %>
+        <%= link_to(content_tag(:i, "", class: "fa fa-heart fa-2x"), favourite_product_path(product), method: :post) %>
+      <% end %>
     </div>
   <% end %>
 </div>
