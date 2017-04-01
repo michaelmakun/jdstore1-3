@@ -7,6 +7,8 @@ class Product < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  searchkick
+
   acts_as_list
 
   has_many :groupships

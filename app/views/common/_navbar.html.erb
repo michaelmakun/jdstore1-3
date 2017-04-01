@@ -9,6 +9,12 @@
         <li class="active">
           <%= link_to("Products", products_path) %>
         </li>
+        <%= form_tag search_products_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+          <p>
+            <%= text_field_tag :search, params[:search], class: "form-control" %>
+            <%= submit_tag "Search", name:nil, class: "btn btn-default btn-sm" %>
+          </p>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
 

@@ -47,6 +47,8 @@ gem 'dalli'  #image in registrations
 
 gem 'acts_as_list'
 
+gem 'searchkick'
+
 group :production do
   gem 'pg'
 end
