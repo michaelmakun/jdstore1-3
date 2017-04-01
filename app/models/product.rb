@@ -19,6 +19,8 @@ class Product < ApplicationRecord
   has_many :product_favs
   has_many :users, through: :product_favs, source: :user
 
+  has_many :reviews, dependent: :destroy
+
   def favourite_product?(user)
     users.include?(user)
   end

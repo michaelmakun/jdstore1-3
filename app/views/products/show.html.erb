@@ -14,6 +14,7 @@
         <%= @product.description %>
       </p>
     </div>
+    <div class="star-rating" data-score=<%= @avg_review %> ></div>
     <div>商品数量: <%= @product.quantity %> </div>
     <div>商品价格: <%= @product.price %> ¥ </div>
 
@@ -25,5 +26,47 @@
       <% end %>
     </div>
 
+    <div class="review clearfix">
+      <h3>共计:<%= @product.reviews.count %>条评论</h3>
+
+      <%= simple_form_for [@product, @review] do |f| %>
+        <div class="form-inputs">
+          <div id="star-rating"></div>
+          <%= f.input :comment %>
+        </div>
+        <div class="form-action">
+          <%= f.submit "评论" %>
+        </div>
+      <% end %>
+    </div>
+
+      <% if @reviews.blank? %>
+        <h3>No reviews just yet, would you like to add the first review?</h3>
+        <!-- <%= link_to("第一条评论", new_product_review_path(@product), class: "btn btn-danger btn-lg") %> -->
+      <% else %>
+        <% @reviews.each do |review| %>
+          <div class="reviews">
+            <div class="star-rating" data-score=<%= review.rating %>></div>
+            <p><%= review.comment %></p>
+            <p>
+              <%= review.user.email %> - <%= review.created_at %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
   </div>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+    }
+  });
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

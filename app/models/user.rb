@@ -15,10 +15,12 @@ class User < ApplicationRecord
   has_many :product_favs
   has_many :products, through: :product_favs, source: :product
 
+  has_many :reviews, dependent: :destroy
+
   # def favourite_product?(product)     #
   #   products.include?(product)
   # end
-  # 
+  #
   # def add_favourite!(product)
   #   products << product
   # end
